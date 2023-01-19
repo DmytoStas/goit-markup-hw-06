@@ -379,16 +379,21 @@ img {
 }
 
 /* Модалка форма */
-.modal .section-descr {
+.modal .modal-title {
   margin-top: 0;
 
   color: var(--main-dark-txt-cl);
   font-weight: 500;
   font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
   text-align: center;
 }
 
-.modal-form,
+.modal-form {
+  margin-top: 14px;
+}
+
 .modal-privpol {
   margin-top: 16px;
 }
