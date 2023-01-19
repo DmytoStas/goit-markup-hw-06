@@ -530,6 +530,10 @@ img {
   border-color: transparent;
 }
 
+.checkbox:focus ~ .check-icon {
+  outline: 2px solid var(--hover-bg);
+}
+
 .modal-form > .main-btn {
   margin-top: var(--main-gap);
 }
