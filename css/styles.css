@@ -1,9 +1,12 @@
 :root {
   --main-dark-txt-cl: #2e2f42;
   --second-dark-txt-cl: #434455;
+  --gray-pripol-txt-cl: #757575;
   --main-light-txt-cl: #fff;
   --second-light-txt-cl: #f4f4fd;
   --third-light-txt-cl: #e7e9fc;
+  --footer-input-gray-txt-cl-60: rgba(255, 255, 255, 0.6);
+  --gray-modal-placeh-txt-cl-50: rgba(117, 117, 117, 0.5);
 
   /* Background */
   --main-light-bg-cl: #fff;
@@ -18,7 +21,9 @@
 
   /* Інше */
   --primary-brand: #4d5ae5;
-  --third-light-bord-cl: #e7e9fc;
+  --third-light-bd-cl: #e7e9fc;
+  --modal-input-bd-cl-20: rgba(33, 33, 33, 0.2);
+  --footer-input-bd-cl-30: rgba(255, 255, 255, 0.3);
   --customers-icon: #8e8f99;
 
   --main-gap: 24px;
@@ -66,20 +71,9 @@ img {
   list-style: none;
 }
 
-.nav-link,
-.hero-btn,
-.filter-btn,
-.section-subtitle {
-  font-weight: 500;
-}
-
-.hero-btn,
-.filter-btn {
-  font-size: inherit;
-  letter-spacing: 0.04em;
-  line-height: 1.5;
-
-  cursor: pointer;
+.footer-subscr-form .footer-email-input:focus,
+.modal-form .modal-input:focus {
+  outline: none;
 }
 
 .current-link {
@@ -102,6 +96,47 @@ img {
 
   background: var(--hover-bg);
   border-radius: 2px;
+}
+
+/* Головні кнопки */
+.nav-link,
+.main-btn,
+.filter-btn,
+.section-subtitle {
+  font-weight: 500;
+}
+
+.main-btn,
+.filter-btn {
+  font-size: inherit;
+  letter-spacing: 0.04em;
+  line-height: 1.5;
+
+  cursor: pointer;
+}
+
+.main-btn {
+  display: block;
+  margin: auto;
+  min-width: 165px;
+  padding: 16px 32px;
+  margin-top: 48px;
+
+  color: var(--main-light-txt-cl);
+
+  background: var(--primary-brand);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  border: 0;
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.main-btn:hover,
+.main-btn:focus {
+  background-color: var(--hover-bg);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
 }
 
 /* Container */
@@ -165,7 +200,7 @@ img {
 .header {
   min-height: 76px;
   width: 100%;
-  border-bottom: 1px solid var(--third-light-bord-cl);
+  border-bottom: 1px solid var(--third-light-bd-cl);
 }
 
 .nav-link,
@@ -284,6 +319,10 @@ img {
 
   width: 408px;
   min-height: 576px;
+  padding-top: 72px;
+  padding-bottom: var(--main-gap);
+  padding-left: var(--main-gap);
+  padding-right: var(--main-gap);
 
   background-color: var(--modal-bg-cl);
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12),
@@ -308,19 +347,195 @@ img {
   width: 24px;
   height: 24px;
 
-  background-color: var(--third-light-bord-cl);
+  color: var(--cross-icon-bg-cl);
+
+  background-color: var(--third-light-bd-cl);
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 50%;
 
   cursor: pointer;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .cross-icon {
   width: 8px;
   height: 8px;
+
+  fill: currentColor;
+
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.close-btn:hover,
+.close-btn:focus {
+  background-color: var(--hover-bg);
+  border-color: var(--hover-bg);
+}
+
+.close-btn:hover > .cross-icon,
+.close-btn:focus > .cross-icon {
+  fill: var(--main-light-bg-cl);
+}
+
+/* Модалка форма */
+.modal .section-descr {
+  margin-top: 0;
+
+  color: var(--main-dark-txt-cl);
+  font-weight: 500;
+  font-size: 16px;
+  text-align: center;
+}
+
+.modal-form,
+.modal-privpol {
+  margin-top: 16px;
+}
+
+.modal-label {
+  display: flex;
+  flex-flow: column;
+  max-width: 360px;
+}
+
+.modal-label > .modal-label-txt {
+  color: var(--customers-icon);
+}
+
+.modal-label > .modal-label-txt,
+.modal-privpol .modal-privpol-txt,
+.modal-privpol > .modal-privpol-link {
+  font-size: 12px;
+  line-height: 1.33;
+  letter-spacing: 0.04em;
+}
+
+.modal-form > .modal-label + .modal-label {
+  margin-top: 8px;
+}
+
+.modal-form .input-thumb,
+.modal-input.comment {
+  margin-top: 4px;
+}
+
+.modal-form .input-thumb {
+  position: relative;
+
+  width: 100%;
+  height: 40px;
+}
+
+.modal-form .modal-icon {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  width: 18px;
+  height: 24px;
+
+  fill: currentColor;
+
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-form .modal-input {
+  color: inherit;
+
+  border: 1px solid var(--modal-input-bd-cl-20);
+  border-radius: 4px;
+
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-form .modal-input.required {
+  width: 100%;
+  height: 100%;
+  padding-left: 38px;
+}
+
+.modal-form .modal-input.comment {
+  width: 360px;
+  height: 120px;
+  padding: 8px 16px;
+
+  resize: none;
+}
+
+.modal-form .modal-input::placeholder {
+  color: var(--gray-modal-placeh-txt-cl-50);
+  font-size: 12px;
+  line-height: 1.33;
+  letter-spacing: 0.04em;
+}
+
+.modal-form .modal-input:not(:placeholder-shown) {
+  border-color: var(--primary-brand);
+}
+
+.modal-form .modal-input:not(:placeholder-shown) + .modal-icon {
+  fill: var(--primary-brand);
+}
+
+.modal-form .modal-input:focus {
+  border-color: var(--primary-brand);
+}
+
+.modal-form .modal-input:focus + .modal-icon {
+  fill: var(--primary-brand);
+}
+
+.modal-privpol-label {
+  position: relative;
+
+  padding-left: 24px;
+}
+
+.modal-privpol-label .modal-privpol-txt {
+  color: var(--gray-pripol-txt-cl);
+}
+
+.modal-privpol > .modal-privpol-link {
+  display: inline-block;
+  height: 100%;
+
+  color: var(--primary-brand);
+}
+
+.modal-privpol-label > .check-icon {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+
+  display: block;
+  width: 16px;
+  height: 16px;
+
+  fill: transparent;
+  background-color: transparent;
+  border: 1.25px solid var(--main-dark-txt-cl);
+  border-radius: 2px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    fill 250ms cubic-bezier(0.4, 0, 0.2, 1) 100ms;
+}
+
+.checkbox:checked ~ .check-icon {
+  fill: var(--second-light-bg-cl);
+  background-color: var(--hover-bg);
+  background-origin: border-box;
+  border-color: transparent;
+}
+
+.modal-form > .main-btn {
+  margin-top: var(--main-gap);
 }
 
 /* Футер */
+
 .footer {
   padding-top: 100px;
   padding-bottom: 100px;
@@ -349,6 +564,7 @@ img {
   font-size: 16px;
 }
 
+/* Футер соціальні мережі */
 .footer-soc {
   margin-left: 120px;
 }
@@ -387,6 +603,60 @@ img {
   background-color: var(--footer-soc-icon-hover-bg);
 }
 
+/* Футер підписка */
+.footer-subscr-form {
+  margin-left: 80px;
+}
+
+.footer-subscr-form > .form-elements {
+  display: flex;
+  column-gap: var(--main-gap);
+  margin-top: 16px;
+}
+
+.footer-subscr-form .main-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 24px;
+  margin: 0 0;
+}
+
+.footer-subscr-form .send-icon {
+  width: 24px;
+  height: 24px;
+  margin-left: 16px;
+}
+
+.footer-subscr-form .footer-email-input {
+  width: 264px;
+  height: 40px;
+  padding-left: 16px;
+
+  color: var(--third-light-txt-cl);
+
+  background-color: transparent;
+  border: 1px solid var(--footer-input-bd-cl-30);
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
+  border-radius: 4px;
+
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.footer-subscr-form .footer-email-input::placeholder {
+  color: var(--footer-input-gray-txt-cl-60);
+  font-size: 12px;
+  line-height: 2;
+  letter-spacing: 0.04em;
+}
+
+.footer-subscr-form .footer-email-input:not(:placeholder-shown) {
+  border-color: var(--primary-brand);
+}
+
+.footer-subscr-form .footer-email-input:focus {
+  border-color: var(--primary-brand);
+}
+
 /* * STUDIO сторінка */
 
 /* Герой */
@@ -417,30 +687,6 @@ img {
   line-height: 1.07;
   letter-spacing: 0.02em;
   text-align: center;
-}
-
-.hero-btn {
-  display: block;
-  margin: auto;
-  min-width: 169px;
-  padding: 16px 32px;
-  margin-top: 48px;
-
-  color: var(--main-light-txt-cl);
-
-  background: var(--primary-brand);
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
-  border-radius: 4px;
-  border: 0;
-
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.hero-btn:hover,
-.hero-btn:focus {
-  background-color: var(--hover-bg);
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
 }
 
 /* Переваги */
@@ -588,7 +834,7 @@ img {
   color: var(--primary-brand);
 
   background: var(--second-light-bg-cl);
-  border: 1px solid var(--third-light-bord-cl);
+  border: 1px solid var(--third-light-bd-cl);
   border-radius: 4px;
 
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
@@ -687,9 +933,9 @@ img {
   padding-top: 32px;
   padding-bottom: 32px;
 
-  border-bottom: 1px solid var(--third-light-bord-cl);
-  border-left: 1px solid var(--third-light-bord-cl);
-  border-right: 1px solid var(--third-light-bord-cl);
+  border-bottom: 1px solid var(--third-light-bd-cl);
+  border-left: 1px solid var(--third-light-bd-cl);
+  border-right: 1px solid var(--third-light-bd-cl);
 
   transition: border-bottom 250ms cubic-bezier(0.4, 0, 0.2, 1),
     border-left 250ms cubic-bezier(0.4, 0, 0.2, 1),
