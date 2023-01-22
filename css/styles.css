@@ -26,6 +26,7 @@
   --footer-input-bd-cl-30: rgba(255, 255, 255, 0.3);
   --customers-icon: #8e8f99;
 
+  --items: 3;
   --main-gap: 24px;
 }
 
@@ -146,12 +147,7 @@ img {
   margin-right: auto;
   padding-right: 15px;
   padding-left: 15px;
-  /* outline: 2px solid tomato; */
 }
-
-/* .item {
-  outline: 2px solid tomato;
-} */
 
 /* Утилітні класи */
 .visually-hidden {
@@ -171,6 +167,19 @@ img {
 .section {
   padding-top: 120px;
   padding-bottom: 120px;
+}
+
+/* *Card set */
+.cards-set {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 48px var(--main-gap);
+}
+
+.items-set {
+  flex-basis: calc(
+    (100% - (var(--items) - 1) * var(--main-gap)) / var(--items)
+  );
 }
 
 /* Лого */
@@ -704,12 +713,9 @@ img {
 }
 
 .benefits-list {
-  display: flex;
-  column-gap: var(--main-gap);
-}
-
-.benefits-list > .item {
-  flex-basis: calc((100% - 3 * var(--main-gap)) / 4);
+  --items: 4;
+  flex-wrap: nowrap;
+  row-gap: 0;
 }
 
 .benefits .section-subtitle,
@@ -733,12 +739,8 @@ img {
 
 /* Послуги */
 .service-list {
-  display: flex;
-  column-gap: var(--main-gap);
-}
-
-.service-list > .item {
-  flex-basis: calc((100% - 2 * var(--main-gap)) / 3);
+  flex-wrap: nowrap;
+  row-gap: 0;
 }
 
 /* Команда студії */
@@ -747,13 +749,12 @@ img {
 }
 
 .team-list {
-  display: flex;
-  column-gap: var(--main-gap);
+  --items: 4;
+  flex-wrap: nowrap;
+  row-gap: 0;
 }
 
 .team-list > .item {
-  flex-basis: calc((100% - 3 * var(--main-gap)) / 4);
-
   box-shadow: 0 1px 6px rgba(46, 47, 66, 0.08), 0 1px 1px rgba(46, 47, 66, 0.16),
     0 2px 1px rgba(46, 47, 66, 0.08);
   border-radius: 0 0 4px 4px;
@@ -790,12 +791,12 @@ img {
 
 /* Наші клієнти */
 .customers-list {
-  display: flex;
-  column-gap: var(--main-gap);
+  --items: 6;
+  flex-wrap: nowrap;
+  row-gap: 0;
 }
 
 .customers-list > .item {
-  flex-basis: calc((100% - 5 * var(--main-gap)) / 6);
   height: 88px;
 }
 
@@ -870,17 +871,6 @@ img {
 }
 
 /* Картки */
-.cards-list {
-  display: flex;
-  flex-wrap: wrap;
-  row-gap: 48px;
-  column-gap: var(--main-gap);
-}
-
-.cards-list > .item {
-  flex-basis: calc((100% - 2 * var(--main-gap)) / 3);
-}
-
 .cards-list .card {
   display: block;
 
