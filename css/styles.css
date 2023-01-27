@@ -65,7 +65,7 @@ img {
   text-decoration: none;
 }
 
-.list {
+ul {
   padding: 0;
   margin: 0;
 
@@ -207,9 +207,11 @@ img {
 
 /* Навігація сайту */
 .header {
-  min-height: 76px;
+  height: 76px;
   width: 100%;
   border-bottom: 1px solid var(--third-light-bd-cl);
+  box-shadow: 0px 2px 1px rgba(46, 47, 66, 0.08),
+    0px 1px 1px rgba(46, 47, 66, 0.16), 0px 1px 6px rgba(46, 47, 66, 0.08);
 }
 
 .nav-link,
@@ -228,7 +230,8 @@ img {
 .header .logo,
 .nav-link,
 .address-link {
-  display: block;
+  display: inline-flex;
+  align-items: center;
   height: 100%;
   padding-top: 24px;
   padding-bottom: 24px;
@@ -242,15 +245,13 @@ img {
 }
 
 .main-nav {
-  height: 76px;
+  height: 100%;
   display: flex;
-  align-items: center;
 }
 
 .nav {
   height: 100%;
   display: flex;
-  align-items: center;
 }
 
 .nav-list {
@@ -691,7 +692,7 @@ img {
       rgba(46, 47, 66, 0.7),
       rgba(46, 47, 66, 0.7)
     ),
-    url(../img/people-office.jpg);
+    url(../img/people-office_descktop_1440.jpg);
   background-position: center;
   background-size: cover;
 }
@@ -818,7 +819,7 @@ img {
 
 .customers-list .customers-icon {
   width: 104px;
-  height: 54px;
+  height: 56px;
 
   fill: currentColor;
 }
